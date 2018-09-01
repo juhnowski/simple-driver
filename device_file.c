@@ -27,14 +27,14 @@ static ssize_t device_file_read(
    if( *possition + count > g_s_Hello_World_size )
       count = g_s_Hello_World_size - *possition;
 
-   if( copy_to_user(user_buffer, g_s_Hello_World_string + *possition, count) != 0 )
-      return -EFAULT;   
+   if( raw_copy_to_user(user_buffer, g_s_Hello_World_string + *possition, count) != 0 )
+      return -EFAULT;
 
    *possition += count;
    return count;
 }
 /*===============================================================================================*/
-static struct file_operations simple_driver_fops = 
+static struct file_operations simple_driver_fops =
 {
    .owner   = THIS_MODULE,
    .read    = device_file_read,

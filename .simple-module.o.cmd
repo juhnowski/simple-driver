@@ -1,0 +1,1 @@
+cmd_/home/ilya/simple-driver/simple-module.o := ld -m elf_x86_64 -z max-page-size=0x200000   -r -o /home/ilya/simple-driver/simple-module.o /home/ilya/simple-driver/main.o /home/ilya/simple-driver/device_file.o 
